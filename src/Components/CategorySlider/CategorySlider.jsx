@@ -25,7 +25,7 @@ export default function CategorySlider() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 7,
+        slidesToShow: 3,
         slidesToScroll: 1
     };
 
