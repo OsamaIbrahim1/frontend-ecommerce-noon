@@ -32,7 +32,7 @@ export default function SliderCategory() {
 
     return <>
         <h2 className='fw-bolder'>Categories</h2>
-        {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main'></i></div> : <Slider className='mb-4' {...settings}>
+        {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main'></i></div> : <Slider className='mb-4 category-slider' {...settings}>
             {categories?.map((category) => <div className='p-1' key={category._id}>
                 <img className='w-100' height={200} src={category.Image.secure_url} alt="" />
                 <h2 className='h6 pt-2'>{category.name}</h2>

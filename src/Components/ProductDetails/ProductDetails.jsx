@@ -24,7 +24,7 @@ export default function ProductDetails() {
 
     async function addProduct(productId) {
         let response = await addToCart(productId)
-        console.log(response)
+
         if (response?.data?.success) {
             toast.success(response.data.message, {
                 duration: 2000,

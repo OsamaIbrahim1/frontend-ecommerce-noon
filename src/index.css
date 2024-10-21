@@ -194,3 +194,27 @@ a:hover {
   font-size: 2cm;
   padding: 20px;
 }
+
+@media screen and (max-width: 992px)  {
+  .main-category-home {
+    display: none;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+  .main-section {
+    text-align: center !important;
+    display: block !important;
+  }
+
+  .section{
+    width: 100%;
+  }
+
+  .category-slider {
+    width: 90% !important;
+    margin: 0px auto;
+  }
+}

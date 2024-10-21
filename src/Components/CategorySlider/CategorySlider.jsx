@@ -33,7 +33,7 @@ export default function CategorySlider() {
             </Slider>} */}
         <div className='d-flex justify-content-between'>
 
-            <div className='col-2'>
+            <div className='col-2 main-category-home'>
                 {categories?.map((category) => <div className='p-1 category-home' key={category._id}>
                     <Link to={`/category/getCategoryById/${category._id}`}>
                         <h2 className='h6 pt-2'>{category.name}</h2>

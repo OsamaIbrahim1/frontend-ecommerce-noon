@@ -32,7 +32,6 @@ export default function Cart() {
     async function deleteItem(productId) {
         setisloading(true)
         let response = await removeItem(productId)
-        console.log(response)
         setisloading(false)
         if (response?.data?.success) {
             if (response.data.data.products.length === 0) {
