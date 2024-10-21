@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 
 export default function Categories() {
@@ -32,9 +33,9 @@ export default function Categories() {
                 <img className='w-100' height={200} src={category.Image.secure_url} alt="" />
                 <h3 className='h5 py-3 text-center'>{category.name}</h3>
                 <div className='d-flex justify-content-between'>
-                    <button className='btn bg-main text-white'>products</button>
+                    <Link to={`/productcategory/${category._id}`}><button className='btn bg-main text-white'>products</button></Link>
                     <button className='btn bg-outline-main '>sub category</button>
-                    <button className='btn bg-main text-white'>brands</button>
+                    <Link to={`/brandcategory/${category._id}`}><button className='btn bg-main text-white'>brands</button></Link>
                 </div>
             </div>
             ))}

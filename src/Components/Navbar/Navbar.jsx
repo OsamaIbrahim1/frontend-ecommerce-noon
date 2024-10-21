@@ -11,10 +11,81 @@ export default function Navbar({ userData, logout }) {
     return <>
 
         <nav
+            className="navbar fixed-top navbar-expand-sm navbar-light bg-white "
+        >
+            <div className="container d-flex justify-align-content-between">
+                <div>
+                    <Link className="navbar-brand'" to="/"><h1 className='h5 fw-bolder'>Exclusive</h1></Link>
+                    <button
+                        className="navbar-toggler d-lg-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div className="collapse navbar-collapse" id="collapsibleNavId">
+                    {userData !== null ? <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li className="nav-item">
+                            <Link className="nav-link fw-bold" to="/">Home</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link fw-bold" to="products">Products</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link fw-bold" to="categories">Categories</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link fw-bold" to="brands">Brands</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link fw-bold" to="orders">Orders</Link>
+                        </li>
+                    </ul> : null}
+
+                    <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
+                        {userData === null ? <>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="login">Login</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="register">Register</Link>
+                            </li>
+                            <i className="fa-solid fa-person-circle-xmark align-content-center"></i>
+
+                        </> : <>
+                            <form className="d-flex position-relative align-items-center" role="search">
+                                <input className="search p-2" type="search" placeholder="What are you looking for?" aria-label="Search" />
+                                <i className="fa-solid fa-magnifying-glass position-absolute"></i>
+                            </form>
+                            <li className="nav-item">
+                                <Link className="nav-link position-relative px-2" to="/cart">
+                                    <i className='fas fa-shopping-cart fa-lg'></i>
+                                    <span className='badge position-absolute top-0 end-0 bg-main text-white'>{numberOfCartItem}</span>
+                                </Link>
+                            </li>
+                            <li className="nav-item d-flex">
+                                <span onClick={logout} className=" cursor-pointer nav-link">Logout</span>
+
+                                <i className="fa-solid fa-person align-content-center cursor-pointer"></i>
+                            </li>
+                        </>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {/*         
+        <nav
             className="navbar fixed-top navbar-expand-sm navbar-light bg-light"
         >
             <div className="container">
-                <Link className="navbar-brand'" to="/"><img height={55} src={logo} alt="" /></Link>
+                <Link className="navbar-brand'" to="/"><h1 className='fw-bolder'>Exclusive</h1></Link>
                 <button
                     className="navbar-toggler d-lg-none"
                     type="button"
@@ -80,6 +151,6 @@ export default function Navbar({ userData, logout }) {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> */}
     </>
 }

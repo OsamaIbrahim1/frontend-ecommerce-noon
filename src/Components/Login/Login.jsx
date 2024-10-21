@@ -2,8 +2,9 @@ import axios from 'axios'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
+import image from '../../assets/images/pexels-asphotograpy-230544.jpg'
 
 
 export default function Login({ saveUserData }) {
@@ -44,7 +45,37 @@ export default function Login({ saveUserData }) {
         <Helmet>
             <title>Login</title>
         </Helmet>
-        <div className="w-75 mx-auto py-4">
+        <div className='d-flex justify-content-between'>
+
+            <div className='w-50 '>
+                <img src={image} className='w-100 align-items-center' alt="" />
+            </div>
+            <div className="col-md-4">
+                <h3 className='fw-bolder mb-3'>Log in to Exclusive</h3>
+                <p className='mb-4'>Enter your details below</p>
+
+                {messageError.length > 0 ? <div className='alert alert-danger'>{messageError}</div> : null}
+
+                <form onSubmit={formik.handleSubmit}>
+                    <input placeholder='email' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />
+                    {formik.errors.email && formik.touched.email ? <p className='alert-message'>{formik.errors.email}</p> : null}
+                    <div className="hr mb-2"></div>
+
+                    <input placeholder='password' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.password} type="password" name='password' id='password' />
+                    {formik.errors.password && formik.touched.password ? <p className='alert-message'>{formik.errors.password}</p> : null}
+                    <div className="hr mb-2"></div>
+
+                    <div className='d-flex align-items-center justify-content-between'>
+                        {isloading ? <button type='buttn' className='btn bg-main text-white'><i className='fas fa-spinner fa-spin'></i></button> : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Log In</button>}
+                        <Link to={'/forgetPassword'} className='forget-password'>Forget Password?</Link>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+        {/* <div className="w-75 mx-auto py-4">
             <h3>Login Now : </h3>
             {messageError.length > 0 ? <div className='alert alert-danger'>{messageError}</div> : null}
 
@@ -60,6 +91,6 @@ export default function Login({ saveUserData }) {
                 {isloading ? <button type='buttn' className='btn bg-main text-white'><i className='fas fa-spinner fa-spin'></i></button> : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Login</button>}
 
             </form>
-        </div>
+        </div> */}
     </>
 }

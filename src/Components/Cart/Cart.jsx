@@ -104,11 +104,10 @@ export default function Cart() {
     }, [])
 
     return <>
-        {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main position-absolute'></i></div> :
-            <div className="row">
-                <Helmet>
-                    <title>Cart Details</title>
-                </Helmet>
+        <Helmet>
+            <title>Cart Details</title>
+        </Helmet>
+        {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main position-absolute'></i></div> :     <div className="row">
                 {cartDetailes ? <div className="bg-main-light p-4 my-4">
                     <div className='text-end'>
                         <button onClick={() => removeAllItems(cartDetailes._id)} className='btn bg-outline-main'>clear Cart</button>

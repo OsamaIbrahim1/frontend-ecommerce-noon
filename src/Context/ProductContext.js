@@ -16,9 +16,19 @@ export default function ProductContextProvider(props) {
       }
     );
   }
+  async function getProductsForCategory(categoryId) {
+    return await axios.get(
+      `https://e-cmmerce-noon-5.onrender.com/product/getProductsCategory/${categoryId}`,
+      {
+        headers,
+      }
+    );
+  }
 
   return (
-    <productContext.Provider value={{ getProductsForBrand }}>
+    <productContext.Provider
+      value={{ getProductsForBrand, getProductsForCategory }}
+    >
       {props.children}
     </productContext.Provider>
   );

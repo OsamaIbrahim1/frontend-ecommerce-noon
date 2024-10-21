@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Slider from 'react-slick';
+import logo1 from '../../assets/images/blog-img-1.jpeg'
+import logo2 from '../../assets/images/blog-img-2.jpeg'
+import logo3 from '../../assets/images/banner-4.jpeg'
+import { Link } from 'react-router-dom';
 
 export default function CategorySlider() {
     let [categories, setcategories] = useState([])
@@ -21,21 +24,46 @@ export default function CategorySlider() {
         getCategories()
     }, [])
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1
-    };
-
     return <>
+        {/* {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main'></i></div> : <Slider className='mb-4' {...settings}>
+                {categories?.map((category) => <div className='p-1' key={category._id}>
+                    <img className='w-100' height={200} src={category.Image.secure_url} alt="" />
+                    <h2 className='h6 pt-2'>{category.name}</h2>
+                </div>)}
+            </Slider>} */}
+        <div className='d-flex justify-content-between'>
 
-        {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main'></i></div> : <Slider className='mb-4' {...settings}>
-            {categories?.map((category) => <div className='p-1' key={category._id}>
-                <img className='w-100' height={200} src={category.Image.secure_url} alt="" />
-                <h2 className='h6 pt-2'>{category.name}</h2>
-            </div>)}
-        </Slider>}
+            <div className='col-2'>
+                {categories?.map((category) => <div className='p-1 category-home' key={category._id}>
+                    <Link to={`/category/getCategoryById/${category._id}`}>
+                        <h2 className='h6 pt-2'>{category.name}</h2>
+                    </Link>
+                </div>)}
+            </div>
+
+
+
+            <div id="carouselExample" className="carousel slide py-2 col-9">
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <img src={logo3} className="d-block w-100" height={350} alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src={logo1} className="d-block w-100" height={350} alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src={logo2} className="d-block w-100" height={350} alt="..." />
+                    </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
     </>
 }

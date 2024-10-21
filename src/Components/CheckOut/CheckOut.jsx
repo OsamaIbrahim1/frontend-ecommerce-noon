@@ -13,7 +13,6 @@ export default function CheckOut() {
 
     async function getCart() {
         let response = await getLoggedUserCart()
-        console.log(response)
     }
 
     async function handleSubmit(values) {
@@ -54,6 +53,7 @@ export default function CheckOut() {
         <Helmet>
             <title>Checkout</title>
         </Helmet>
+        
         {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main position-absolute'></i></div> : <div className="w-50 py-5 mx-auto">
             <form onSubmit={formik.handleSubmit}>
                 <select className="form-select" aria-label="Default select example" name="paymentMethod" value={formik.values.paymentMethod} onChange={formik.handleChange} >

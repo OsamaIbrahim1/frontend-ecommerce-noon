@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
+import image from '../../assets/images/pexels-asphotograpy-230544.jpg'
 
 export default function Register() {
     let navigate = useNavigate()
@@ -40,7 +41,7 @@ export default function Register() {
             password: '',
             phoneNumber: '',
             address: '',
-            role: '',
+            role: 'user',
             age: ''
         },
         validationSchema,
@@ -52,43 +53,51 @@ export default function Register() {
         <Helmet>
             <title>Register</title>
         </Helmet>
-        <div className="w-75 mx-auto py-4">
-            <h3>Register Now : </h3>
-            {messageError.length > 0 ? <div className='alert alert-danger'>{messageError}</div> : null}
+        <div className='d-flex justify-content-between'>
 
-            <form onSubmit={formik.handleSubmit}>
-                <label htmlFor="username">User Name</label>
-                <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.username} type="text" name='username' id='username' />
-                {formik.errors.username && formik.touched.username ? <div className='alert alert-danger'>{formik.errors.username}</div> : null}
+            <div className='w-50 '>
+                <img src={image} className='w-100 align-items-center' alt="" />
+            </div>
+            {/* <div className="w-75 mx-auto py-4"> */}
+            <div className="col-md-4">
+                <h3 className='fw-bolder mb-3'>Create an account </h3>
+                <p className='mb-4'>Enter your details below</p>
 
-                <label htmlFor="email">Email</label>
-                <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />
-                {formik.errors.email && formik.touched.email ? <div className='alert alert-danger'>{formik.errors.email}</div> : null}
+                {messageError.length > 0 ? <div className='alert alert-danger'>{messageError}</div> : null}
 
-                <label htmlFor="password">Password</label>
-                <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.password} type="password" name='password' id='password' />
-                {formik.errors.password && formik.touched.password ? <div className='alert alert-danger'>{formik.errors.password}</div> : null}
+                <form onSubmit={formik.handleSubmit}>
+                    <input placeholder='username' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.username} type="text" name='username' id='username' />
+                    {formik.errors.username && formik.touched.username ? <p className='alert-message'>{formik.errors.username}</p> : null}
+                    <div className="hr mb-2"></div>
+                    <input placeholder='email' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />
+                    {formik.errors.email && formik.touched.email ? <p className='alert-message'>{formik.errors.email}</p> : null}
 
-                <label htmlFor="phoneNumber">Phone Number</label>
-                <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.phoneNumber} type="tel" name='phoneNumber' id='phoneNumber' />
-                {formik.errors.phoneNumber && formik.touched.phoneNumber ? <div className='alert alert-danger'>{formik.errors.phoneNumber}</div> : null}
+                    <div className="hr mb-2"></div>
+                    <input placeholder='password' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.password} type="password" name='password' id='password' />
+                    {formik.errors.password && formik.touched.password ? <p className='alert-message'>{formik.errors.password}</p> : null}
 
-                <label htmlFor="address">Address</label>
-                <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.address} type="text" name='address' id='address' />
-                {formik.errors.address && formik.touched.address ? <div className='alert alert-danger'>{formik.errors.address}</div> : null}
+                    <div className="hr mb-2"></div>
+                    <input placeholder='phoneNumber' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.phoneNumber} type="tel" name='phoneNumber' id='phoneNumber' />
+                    {formik.errors.phoneNumber && formik.touched.phoneNumber ? <p className='alert-message'>{formik.errors.phoneNumber}</p> : null}
 
-                <label htmlFor="role">Role</label>
-                <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.role} type="text" name='role' id='role' />
-                {formik.errors.role && formik.touched.role ? <div className='alert alert-danger'>{formik.errors.role}</div> : null}
+                    <div className="hr mb-2"></div>
+                    <input placeholder='address' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.address} type="text" name='address' id='address' />
+                    {formik.errors.address && formik.touched.address ? <p className='alert-message'>{formik.errors.address}</p> : null}
 
-                <label htmlFor="age">Age</label>
-                <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.age} type="text" name='age' id='age' />
-                {formik.errors.age && formik.touched.age ? <div className='alert alert-danger'>{formik.errors.age}</div> : null}
+                    <div className="hr"></div>
+                    {/* <input placeholder='role' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.role} type="text" name='role' id='role' />
+                    {formik.errors.role && formik.touched.role ? <div className='alert alert-danger'>{formik.errors.role}</div> : null}
+                    <hr /> */}
 
-                {isloading ? <button type='buttn' className='btn bg-main text-white'><i className='fas fa-spinner fa-spin'></i></button> : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Register</button>}
+                    <input placeholder='age' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.age} type="text" name='age' id='age' />
+                    {formik.errors.age && formik.touched.age ? <p className='alert-message'>{formik.errors.age}</p> : null}
+                    <div className="hr mb-2"></div>
 
-            </form>
+                    {isloading ? <button type='buttn' className='btn bg-main text-white'><i className='fas fa-spinner fa-spin'></i></button> : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Register</button>}
+
+                </form>
+            </div>
+
         </div>
-
     </>
 }

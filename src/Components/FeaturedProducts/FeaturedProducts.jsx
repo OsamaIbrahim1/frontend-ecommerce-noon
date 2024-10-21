@@ -10,7 +10,6 @@ export default function FeaturedProducts() {
 
     async function addProduct(productId, quantity) {
         let response = await addToCart(productId, quantity)
-        // console.log("response:", response.data.data.products)
         if (response?.data?.success) {
             setnumberOfCartItem(response.data.data.products.length)
             toast.success(response.data.message, {
@@ -46,6 +45,7 @@ export default function FeaturedProducts() {
 
     return <>
         <div className="row">
+            <h5 className='fw-bolder'>Products</h5>
             {products.map(product => <div key={product._id} className="gy-4 col-md-3">
 
                 <div className="product  px-2 py-3 cursor-pointer">
