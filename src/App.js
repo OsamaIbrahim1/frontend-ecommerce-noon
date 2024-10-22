@@ -34,6 +34,7 @@ import CategoryDetails from "./Components/CategoryDetails/CategoryDetails";
 import ProductsBrand from "./Components/ProductsBrand/ProductsBrand";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import UserContext from "./Context/UserContext";
+import UpdateAccount from "./Components/UpdateAccount/UpdateAccount";
 
 function App() {
   useEffect(() => {
@@ -180,6 +181,7 @@ function App() {
         },
         { path: "login", element: <Login saveUserData={saveUserData} /> },
         { path: "userProfile", element: <UserProfile /> },
+        { path: "update", element: <UpdateAccount /> },
         { path: "register", element: <Register /> },
         { path: "*", element: <NotFound /> },
       ],

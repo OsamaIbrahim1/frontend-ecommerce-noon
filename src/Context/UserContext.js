@@ -26,14 +26,6 @@ export default function UserContext(props) {
     );
   }
 
-  async function handleUpdateAccount(values) {
-    let { data } = await axios
-      .post("https://e-cmmerce-noon-5.onrender.com/auth/update", values, {
-        headers,
-      })
-      
-  }
-
   return (
     <userContext.Provider value={{ getUserData, deleteAccount }}>
       {props.children}

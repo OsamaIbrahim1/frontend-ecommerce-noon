@@ -217,6 +217,7 @@ a:hover {
     height: 60%;
   }
 
+  .update-button,
   .buttons-login {
     display: block !important;
   }

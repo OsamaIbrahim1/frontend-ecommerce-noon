@@ -57,7 +57,8 @@ export default function UserProfile() {
     }, [])
 
     return <>
-        {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main'></i></div> : <div className='row-data row p-4'>
+        {isloading ? <div className='text-center '> <i className='fas fa-spin fa-2x fa-spinner text-main'></i></div> : <div className='row-data row p-4'>
+            <div className='text-center'>  <button onClick={deleteUser} className='btn bg-main text-white'>Delete Account</button></div>
             <h2 className='data py-3' >User Name : {user?.username}</h2>
             <h2 className='data py-3' >Email : {user?.email}</h2>
             <h2 className='data py-3' >Phone Number : {user?.phoneNumber}</h2>
@@ -65,9 +66,8 @@ export default function UserProfile() {
             <h2 className='data py-3' >Age : {user?.age}</h2>
             <h2 className='data py-3' >Address : {user?.address}</h2>
             <div className='d-flex justify-content-between mt-4'>
-                <Link to={'/updateuser'}><button className='btn bg-main text-white'>Updata Data</button></Link>
+                <Link to={'/update'}><button className='btn bg-main text-white'>Updata Data</button></Link>
                 <Link to={'/updateuser'}><button className='btn bg-main text-white'>Change Password</button></Link>
-                <button onClick={deleteUser} className='btn bg-main text-white'>Delete Account</button>
             </div>
         </div>}
     </>
