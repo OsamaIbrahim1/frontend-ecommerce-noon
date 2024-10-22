@@ -46,7 +46,7 @@ export default function Brand() {
                     <h3 className='h6 py-3 text-center'>{brand.name}</h3>
                 </Link>
                 <div className='text-center'>
-                    <button onClick={() => Brands(brand._id)} className='btn bg-outline-main'>products</button>
+                    <Link to={`/productsBrand/${brand._id}`}><button className='btn bg-outline-main'>products</button> </Link>
                 </div>
             </div>
             ))}

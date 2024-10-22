@@ -22,9 +22,9 @@ export default function ProductDetails() {
         slidesToScroll: 1
     };
 
-    async function addProduct(productId) {
-        let response = await addToCart(productId)
-
+    async function addProduct(productId, quantity) {
+        let response = await addToCart(productId, quantity)
+        console.log(response)
         if (response?.data?.success) {
             toast.success(response.data.message, {
                 duration: 2000,
@@ -68,7 +68,7 @@ export default function ProductDetails() {
                         {productDetails?.Images.map((image) => < img key={image.public_id} className='w-100' height={450} src={image.secure_url} alt="" />)}
                     </Slider>}
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-8 p-4">
                     <h3>{productDetails?.title}</h3>
                     <p className="text-muted p-2">{productDetails?.desc}</p>
 
@@ -85,7 +85,7 @@ export default function ProductDetails() {
                         </span>
                     </div>
 
-                    <button onClick={() => addProduct(productDetails._id)} className='btn bg-main text-white w-100 '>+ Add</button>
+                    <button onClick={() => addProduct(productDetails._id, 1)} className='btn bg-main text-white w-100 '>+ Add</button>
                 </div>
             </>}
 

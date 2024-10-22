@@ -40,7 +40,7 @@ export default function BrandsCtegory() {
                     <img className='w-100' height={200} src={brand.Image.secure_url} alt="" />
                     <h3 className='text-center py-3'>{brand.name}</h3>
                 </Link>
-                <Link to={'/productsBrand'}><button className='btn bg-main text-white'>Products</button></Link>
+                <Link to={`/productsBrand/${brand._id}`}><button className='btn bg-main text-white'>Products</button></Link>
             </div>
             )}
         </div>

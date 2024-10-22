@@ -45,35 +45,38 @@ export default function Login({ saveUserData }) {
         <Helmet>
             <title>Login</title>
         </Helmet>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between '>
 
-            <div className='w-50 '>
-                <img src={image} className='w-100 align-items-center' alt="" />
+            <div className='w-50 d-flex align-items-center p-2'>
+                <img src={image} className='w-100 align-items-center login-image' alt="" />
             </div>
-            <div className="col-md-4">
-                <h3 className='fw-bolder mb-3'>Log in to Exclusive</h3>
-                <p className='mb-4'>Enter your details below</p>
+            <div className='col-md-4 d-flex justify-content-center align-items-center p-3'>
 
-                {messageError.length > 0 ? <div className='alert alert-danger'>{messageError}</div> : null}
+                <div>
+                    <h3 className='fw-bolder mb-3'>Log in to Exclusive</h3>
+                    <p className='mb-4'>Enter your details below</p>
 
-                <form onSubmit={formik.handleSubmit}>
-                    <input placeholder='email' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />
-                    {formik.errors.email && formik.touched.email ? <p className='alert-message'>{formik.errors.email}</p> : null}
-                    <div className="hr mb-2"></div>
+                    {messageError.length > 0 ? <div className='alert alert-danger'>{messageError}</div> : null}
 
-                    <input placeholder='password' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.password} type="password" name='password' id='password' />
-                    {formik.errors.password && formik.touched.password ? <p className='alert-message'>{formik.errors.password}</p> : null}
-                    <div className="hr mb-2"></div>
+                    <form onSubmit={formik.handleSubmit}>
+                        <input placeholder='email' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />
+                        {formik.errors.email && formik.touched.email ? <p className='alert-message'>{formik.errors.email}</p> : null}
+                        <div className="hr mb-2"></div>
 
-                    <div className='d-flex align-items-center justify-content-between'>
-                        {isloading ? <button type='buttn' className='btn bg-main text-white'><i className='fas fa-spinner fa-spin'></i></button> : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Log In</button>}
-                        <Link to={'/forgetPassword'} className='forget-password'>Forget Password?</Link>
-                    </div>
+                        <input placeholder='password' onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.password} type="password" name='password' id='password' />
+                        {formik.errors.password && formik.touched.password ? <p className='alert-message'>{formik.errors.password}</p> : null}
+                        <div className="hr mb-2"></div>
+
+                        <div className='buttons-login d-flex align-items-center justify-content-between'>
+                            {isloading ? <button type='button' className='btn bg-main text-white '><i className='fas fa-spinner fa-spin'></i></button> : <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white'>Log In</button>}
+                            <Link to={'/forgetPassword'} className='forget-password'>Forget Password?</Link>
+                        </div>
 
 
-                </form>
+                    </form>
+                </div>
+
             </div>
-
         </div>
         {/* <div className="w-75 mx-auto py-4">
             <h3>Login Now : </h3>

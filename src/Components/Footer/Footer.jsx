@@ -11,7 +11,7 @@ export default function Footer() {
                     <Link to={'/'}><p className='footer-content'>Subscribe</p></Link>
                     <Link to={'/'}><p className='footer-content'>Get 10% off your first order</p></Link>
                     <div className='footer-input position-relative'>
-                        <input className='w-100' type="text" name="yourmail" id="yourmail" placeholder='Enter your email' />
+                        <input className='w-100 p-2' type="text" name="yourmail" id="yourmail" placeholder='Enter your email' />
                         <i className="fa-regular fa-paper-plane position-absolute"></i>
                     </div>
                 </div>
@@ -24,7 +24,7 @@ export default function Footer() {
                 <div className='col-md-2 section'>
                     <Link to={'/'}><p className='footer-content'>Account</p></Link>
                     <Link to={'/'}><p className='footer-content'>My Account</p></Link>
-                    <Link to={'/'}><p className='footer-content'>Login / Register</p></Link>
+                    <p className='footer-content'> <Link className='footer-link' to={'/login'}>Login</Link> / <Link className='footer-link' to={'/register'}>Register</Link></p>
                     <Link to={'/'}><p className='footer-content'>Cart</p></Link>
                     <Link to={'/'}><p className='footer-content'>Wishlist</p></Link>
                     <Link to={'/'}><p className='footer-content'>Shop</p></Link>

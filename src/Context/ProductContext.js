@@ -24,10 +24,22 @@ export default function ProductContextProvider(props) {
       }
     );
   }
+  async function productsForSpecificBrand(brandId) {
+    return await axios.get(
+      `https://e-cmmerce-noon-5.onrender.com/product/productsForSpecificBrand/${brandId}`,
+      {
+        headers,
+      }
+    );
+  }
 
   return (
     <productContext.Provider
-      value={{ getProductsForBrand, getProductsForCategory }}
+      value={{
+        getProductsForBrand,
+        getProductsForCategory,
+        productsForSpecificBrand,
+      }}
     >
       {props.children}
     </productContext.Provider>

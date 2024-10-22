@@ -29,6 +29,11 @@ import BrandsCtegory from "./Components/BrandsCtegory/BrandsCtegory";
 import BrandContextProvider from "./Context/BrandContext";
 import BrandDetails from "./Components/BrandDetails/BrandDetails";
 import ProductCategory from "./Components/ProductCategory/ProductCategory";
+import CategoryContext from "./Context/CategoryContext";
+import CategoryDetails from "./Components/CategoryDetails/CategoryDetails";
+import ProductsBrand from "./Components/ProductsBrand/ProductsBrand";
+import UserProfile from "./Components/UserProfile/UserProfile";
+import UserContext from "./Context/UserContext";
 
 function App() {
   useEffect(() => {
@@ -79,10 +84,27 @@ function App() {
           ),
         },
         {
+          path: "categoryDetails/:categoryId",
+          element: (
+            <ProtectedRoute>
+              {" "}
+              <CategoryDetails />
+            </ProtectedRoute>
+          ),
+        },
+        {
           path: "productcategory/:categoryId",
           element: (
             <ProtectedRoute>
               <ProductCategory />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "productsBrand/:brandId",
+          element: (
+            <ProtectedRoute>
+              <ProductsBrand />
             </ProtectedRoute>
           ),
         },
@@ -157,6 +179,7 @@ function App() {
           ),
         },
         { path: "login", element: <Login saveUserData={saveUserData} /> },
+        { path: "userProfile", element: <UserProfile /> },
         { path: "register", element: <Register /> },
         { path: "*", element: <NotFound /> },
       ],
@@ -167,13 +190,17 @@ function App() {
     <CartContextProvider>
       <BrandContextProvider>
         <OrderContextProvider>
-          <ProductContextProvider>
-            <Toaster />
-            <Offline>
-              <div className="network">Only shown offline (surprise!)</div>
-            </Offline>
-            <RouterProvider router={routers}></RouterProvider>
-          </ProductContextProvider>
+          <CategoryContext>
+            <ProductContextProvider>
+              <UserContext>
+                <Toaster />
+                <Offline>
+                  <div className="network">Only shown offline (surprise!)</div>
+                </Offline>
+                <RouterProvider router={routers}></RouterProvider>
+              </UserContext>
+            </ProductContextProvider>
+          </CategoryContext>
         </OrderContextProvider>
       </BrandContextProvider>
     </CartContextProvider>

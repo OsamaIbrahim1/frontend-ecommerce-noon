@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import logo from '../../assets/images/logo1.jpg'
 import './Navbar.module.css'
 import { Link } from 'react-router-dom'
 import { cartContext } from '../../Context/CartContext'
@@ -7,6 +6,20 @@ import { cartContext } from '../../Context/CartContext'
 export default function Navbar({ userData, logout }) {
 
     let { numberOfCartItem } = useContext(cartContext)
+
+    function hideIconSearch() {
+        let icon = document.getElementById('search-icon')
+        icon.className = 'd-none'
+        return icon
+    }
+
+    function showIconSearch() {
+        let icon = document.getElementById('search-icon')
+        icon.className = 'fa-solid fa-magnifying-glass position-absolute'
+        return icon
+    }
+
+
 
     return <>
 
@@ -59,8 +72,8 @@ export default function Navbar({ userData, logout }) {
 
                         </> : <>
                             <form className="d-flex position-relative align-items-center" role="search">
-                                <input className="search p-2" type="search" placeholder="What are you looking for?" aria-label="Search" />
-                                <i className="fa-solid fa-magnifying-glass position-absolute"></i>
+                                <input onChange={hideIconSearch} onMouseLeave={showIconSearch} className="search p-2" type="search" placeholder="What are you looking for?" aria-label="Search" />
+                                <i id='search-icon' className="fa-solid fa-magnifying-glass position-absolute"></i>
                             </form>
                             <li className="nav-item">
                                 <Link className="nav-link position-relative px-2" to="/cart">
@@ -71,8 +84,7 @@ export default function Navbar({ userData, logout }) {
                             <li className="nav-item d-flex">
                                 <span onClick={logout} className=" cursor-pointer nav-link">Logout</span>
 
-                                <i className="fa-solid fa-person align-content-center cursor-pointer"></i>
-                            </li>
+                                <div className='align-content-center'>   <Link to={'/userProfile'}><i className="fa-solid fa-person cursor-pointer"></i></Link></div>     </li>
                         </>
                         }
                     </ul>

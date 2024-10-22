@@ -10,14 +10,18 @@ export default function CategorySlider() {
     const [isloading, setisloading] = useState(false)
 
     async function getCategories() {
-        setisloading(true)
-        let { data } = await axios.get(`https://e-cmmerce-noon-5.onrender.com/category/categories`, {
-            headers: {
-                'accesstoken': 'accesstoken_' + localStorage.getItem('userToken')
-            }
-        })
-        setcategories(data.data)
-        setisloading(false)
+        try {
+            setisloading(true)
+            let { data } = await axios.get(`https://e-cmmerce-noon-5.onrender.com/category/categories`, {
+                headers: {
+                    'accesstoken': 'accesstoken_' + localStorage.getItem('userToken')
+                }
+            })
+            setcategories(data.data)
+            setisloading(false)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {
@@ -31,12 +35,12 @@ export default function CategorySlider() {
                     <h2 className='h6 pt-2'>{category.name}</h2>
                 </div>)}
             </Slider>} */}
-        <div className='d-flex justify-content-between'>
+        {isloading ? <div className='text-center'> <i className='fas fa-spin fa-2x fa-spinner text-main'></i></div> : <div className='d-flex justify-content-between'>
 
             <div className='col-2 main-category-home'>
                 {categories?.map((category) => <div className='p-1 category-home' key={category._id}>
-                    <Link to={`/category/getCategoryById/${category._id}`}>
-                        <h2 className='h6 pt-2'>{category.name}</h2>
+                    <Link to={`/categoryDetails/${category._id}`}>
+                        <h2 className='h6 pt-2'>{category?.name}</h2>
                     </Link>
                 </div>)}
             </div>
@@ -64,6 +68,6 @@ export default function CategorySlider() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
+        </div>}
     </>
 }

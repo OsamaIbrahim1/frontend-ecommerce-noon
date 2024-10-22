@@ -168,6 +168,15 @@ a:hover {
   font-size: 15px;
 }
 
+.footer-link {
+  color: #fafafa;
+}
+
+.footer-link:hover,
+.footer-content:hover {
+  color: var(--main-color);
+}
+
 .footer-hr {
   background-color: #2d2d2d;
   height: 1px;
@@ -195,7 +204,7 @@ a:hover {
   padding: 20px;
 }
 
-@media screen and (max-width: 992px)  {
+@media screen and (max-width: 992px) {
   .main-category-home {
     display: none;
   }
@@ -204,12 +213,24 @@ a:hover {
     width: 100%;
   }
 
+  .login-image {
+    height: 60%;
+  }
+
+  .buttons-login {
+    display: block !important;
+  }
+
+  .buttons-login .btn {
+    display: block;
+  }
+
   .main-section {
     text-align: center !important;
     display: block !important;
   }
 
-  .section{
+  .section {
     width: 100%;
   }
 
@@ -217,4 +238,12 @@ a:hover {
     width: 90% !important;
     margin: 0px auto;
   }
+}
+
+.row-data {
+  border: solid 2px var(--main-color);
+}
+
+.data {
+  border-bottom: 1px solid black;
 }
