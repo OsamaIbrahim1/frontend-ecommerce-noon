@@ -53,13 +53,13 @@ export default function Register() {
         <Helmet>
             <title>Register</title>
         </Helmet>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between '>
 
-            <div className='w-50 '>
-                <img src={image} className='w-100 align-items-center' alt="" />
+            <div className='w-50 d-flex align-items-center p-2'>
+                <img src={image} className='w-100 align-items-center login-image' alt="" />
             </div>
             {/* <div className="w-75 mx-auto py-4"> */}
-            <div className="col-md-4">
+            <div className="col-md-4 p-3">
                 <h3 className='fw-bolder mb-3'>Create an account </h3>
                 <p className='mb-4'>Enter your details below</p>
 
