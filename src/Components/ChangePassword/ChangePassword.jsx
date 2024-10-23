@@ -31,6 +31,13 @@ export default function ChangePassword() {
         if (response.data.success) {
             setisloading(false)
             navigate('/userProfile')
+            toast.success(response.data.message, {
+                duration: 2000,
+                style: {
+                    fontSize: 15
+                },
+                className: 'toast-success',
+            })
         }
     }
 
