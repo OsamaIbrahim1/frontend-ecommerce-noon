@@ -56,7 +56,7 @@ export default function ResetPassword() {
             <div className='col-md-4 d-flex justify-content-center align-items-center p-3'>
 
                 <div>
-                    <h3 className='fw-bolder mb-3'>Log in to Exclusive</h3>
+                    <h3 className='fw-bolder mb-3'>Enter new Password</h3>
                     <p className='mb-4'>Enter your details below</p>
 
                     {messageError.length > 0 ? <div className='alert alert-danger'>{messageError}</div> : null}
