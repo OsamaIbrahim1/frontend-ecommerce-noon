@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import image from '../../assets/images/pexels-asphotograpy-230544.jpg'
 import { userContext } from '../../Context/UserContext'
+import toast from 'react-hot-toast'
 
 export default function ChangePassword() {
     let headers = {
