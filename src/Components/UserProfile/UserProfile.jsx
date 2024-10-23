@@ -13,7 +13,7 @@ export default function UserProfile() {
     async function getData() {
         setisloading(true)
         let response = await getUserData()
-        console.log(response.data)
+
         if (response.data.success) {
             setuser(response.data.data)
             setisloading(false)
@@ -67,7 +67,7 @@ export default function UserProfile() {
             <h2 className='data py-3' >Address : {user?.address}</h2>
             <div className='d-flex justify-content-between mt-4'>
                 <Link to={'/update'}><button className='btn bg-main text-white'>Updata Data</button></Link>
-                <Link to={'/updateuser'}><button className='btn bg-main text-white'>Change Password</button></Link>
+                <Link to={'/changePassword'}><button className='btn bg-main text-white'>Change Password</button></Link>
             </div>
         </div>}
     </>

@@ -25,9 +25,22 @@ export default function UserContext(props) {
       }
     );
   }
+  async function changePassword(values) {
+    return await axios.patch(
+      `https://e-cmmerce-noon-5.onrender.com/auth/updatepassword`,
+      values,
+      {
+        headers,
+      }
+    );
+  }
+
+ 
 
   return (
-    <userContext.Provider value={{ getUserData, deleteAccount }}>
+    <userContext.Provider
+      value={{ getUserData, deleteAccount, changePassword }}
+    >
       {props.children}
     </userContext.Provider>
   );

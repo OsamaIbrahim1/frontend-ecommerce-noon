@@ -18,7 +18,6 @@ export default function UpdateAccount() {
     async function handleUpdateAccount(values) {
         try {
             setisloading(true)
-            // let valuesObj = {}
             if (!values.username) {
                 delete values.username
             }
@@ -35,8 +34,6 @@ export default function UpdateAccount() {
                 delete values.phoneNumber
             }
 
-            console.log("values:", values)
-
             let response = await axios.put(
                 "https://e-cmmerce-noon-5.onrender.com/auth/update",
                 values,
@@ -45,10 +42,8 @@ export default function UpdateAccount() {
                 }
             ).catch((err) => {
                 setisloading(false)
-                console.log(err)
                 setmessageError(`Error : ${err.response.data.error_msg}`)
             })
-            console.log("response.data: ", response.data)
             if (response.data.success) {
                 setisloading(false)
                 navigate('/userProfile')

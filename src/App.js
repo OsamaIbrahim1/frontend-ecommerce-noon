@@ -35,6 +35,9 @@ import ProductsBrand from "./Components/ProductsBrand/ProductsBrand";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import UserContext from "./Context/UserContext";
 import UpdateAccount from "./Components/UpdateAccount/UpdateAccount";
+import ChangePassword from "./Components/ChangePassword/ChangePassword";
+import ForgetPassword from "./Components/ForgetPassword/ForgetPassword";
+import ResetPassword from "./Components/ResetPassword/ResetPassword";
 
 function App() {
   useEffect(() => {
@@ -183,6 +186,9 @@ function App() {
         { path: "userProfile", element: <UserProfile /> },
         { path: "update", element: <UpdateAccount /> },
         { path: "register", element: <Register /> },
+        { path: "forgetPassword", element: <ForgetPassword /> },
+        { path: "resetPassword/:token", element: <ResetPassword /> },
+        { path: "changePassword", element: <ChangePassword /> },
         { path: "*", element: <NotFound /> },
       ],
     },

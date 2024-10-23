@@ -84,7 +84,8 @@ export default function Navbar({ userData, logout }) {
                             <li className="nav-item d-flex">
                                 <span onClick={logout} className=" cursor-pointer nav-link">Logout</span>
 
-                                <div className='align-content-center'>   <Link to={'/userProfile'}><i className="fa-solid fa-person cursor-pointer w-50"></i></Link></div>     </li>
+                                <div className='align-content-center'><Link to={'/userProfile'}><i className="fa-solid fa-person cursor-pointer mx-3" ></i></Link></div>
+                            </li>
                         </>
                         }
                     </ul>
