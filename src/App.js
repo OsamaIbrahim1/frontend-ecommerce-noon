@@ -38,6 +38,7 @@ import UpdateAccount from "./Components/UpdateAccount/UpdateAccount";
 import ChangePassword from "./Components/ChangePassword/ChangePassword";
 import ForgetPassword from "./Components/ForgetPassword/ForgetPassword";
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
+import OrderDetails from "./Components/OrderDetails/OrderDetails";
 
 function App() {
   useEffect(() => {
@@ -143,6 +144,15 @@ function App() {
             <ProtectedRoute>
               {" "}
               <Order />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "orderDetails",
+          element: (
+            <ProtectedRoute>
+              {" "}
+              <OrderDetails />
             </ProtectedRoute>
           ),
         },

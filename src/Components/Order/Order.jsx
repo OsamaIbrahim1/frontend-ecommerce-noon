@@ -24,31 +24,31 @@ export default function Order() {
             <title>Your Orders</title>
         </Helmet>
         <div className='row'>
-            {/* <Link to={'/'}>
-            </Link> */}
             <h1>Orders : </h1>
-            {orders?.map((order) => <div key={order._id} className='order cursor-pointer px-2 py-3  d-flex'>
-                <div className='col-md-4 mt-4'>
-                    {order.orderItems.map((item) => <>
-                        <h4 className='h6 fw-bolder'>title : {item.title}</h4>
-                        <h4 className='h6 fw-bolder'>quantity : {item.quantity}</h4>
+            <Link to={'/'}>
+                {orders?.map((order) => <div key={order._id} className='order cursor-pointer px-2 py-3  d-flex'>
+                    <div className='col-md-4 mt-4'>
+                        {order.orderItems.map((item) => <>
+                            <h4 className='h6 fw-bolder'>title : {item.title}</h4>
+                            <h4 className='h6 fw-bolder'>quantity : {item.quantity}</h4>
 
-                    </>
+                        </>
 
-                    )}
+                        )}
+                    </div>
+                    <div className='col-md-4'>
+                        <h4 className='h4 text-center'>{order.orderStatus}</h4>
+                    </div>
+                    <div className='col-md-4 mt-4 '>
+                        <h4 className='h6 fw-bolder'>payment method : {order.paymentMethod}</h4>
+                        <h4 className='h6 fw-bolder'>is paid: {`${order.isPaid}`}</h4>
+                        <h4 className='h6 fw-bolder'>is delivered: {`${order.isDelivered}`}</h4>
+                        <h4 className='h6 fw-bolder'>total price: {order.totalPrice}</h4>
+                        <button className='btn bg-outline-main start-0'>more detailes</button>
+                    </div>
                 </div>
-                <div className='col-md-4'>
-                    <h4 className='h4 text-center'>{order.orderStatus}</h4>
-                </div>
-                <div className='col-md-4 mt-4 '>
-                    <h4 className='h6 fw-bolder'>payment method : {order.paymentMethod}</h4>
-                    <h4 className='h6 fw-bolder'>is paid: {`${order.isPaid}`}</h4>
-                    <h4 className='h6 fw-bolder'>is delivered: {`${order.isDelivered}`}</h4>
-                    <h4 className='h6 fw-bolder'>total price: {order.totalPrice}</h4>
-                    <button className='btn bg-outline-main start-0'>more detailes</button>
-                </div>
-            </div>
-            )}
+                )}
+            </Link>
         </div>
     </>
 }
